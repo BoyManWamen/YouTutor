@@ -3,8 +3,6 @@
 -- Project Title: YouTutor: Campus AI Learning Platform
 -- Team Members: Julian Lee, Richard Chen
 -- File: Checkpoint2-script.sql
--- Run with SQLite 3.35+: sqlite3 Checkpoint2-dbase.sqlite3 ".read Checkpoint2-script.sql"
--- Rebuild from the repo: sqlite3 rebuilt.sqlite3 ".read Support/Checkpoint2-seed.sql"
 -- ============================================================================
 
 -- SCHEMA MODIFICATIONS SINCE CHECKPOINT 1
@@ -56,7 +54,6 @@ PRAGMA foreign_keys = ON;
 .mode column
 .bail on
 
--- Roll back the examples at the end so the seed data is ready for another run.
 BEGIN;
 
 -- SECTION 1: SIMPLE STATEMENTS
