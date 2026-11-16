@@ -206,8 +206,8 @@ WHERE s.status = 'active' AND a.session_id IS NULL
 ORDER BY s.started_at, s.session_id;
 
 -- ----------------------------------------------------------------------------
--- Statement 15: Topics with a full practice set
--- Explanation: List topics that have at least three questions in the question
+-- Statement 15: Topics with at least three practice questions
+-- Explanation: List topics with at least three questions in the question
 --              bank.
 -- ----------------------------------------------------------------------------
 SELECT c.course_code, t.title AS topic, COUNT(*) AS questions
@@ -492,8 +492,8 @@ WHERE parent.session_id = 1 AND parent.share_status = 'shared'
 
 -- ----------------------------------------------------------------------------
 -- Statement 32: Verify the fork and topic view
--- Explanation: Show Ben's new fork and whether the trigger marked its topic
---              viewed.
+-- Explanation: Check whether Ben's topic is marked as viewed after starting
+--              the fork.
 -- ----------------------------------------------------------------------------
 SELECT st.name, t.title AS topic, s.session_id, s.parent_session_id, s.share_status,
        CASE WHEN v.topic_id IS NULL THEN 'no' ELSE 'yes' END AS topic_viewed
@@ -503,4 +503,4 @@ JOIN Topics AS t ON t.topic_id = s.topic_id
 LEFT JOIN TopicViews AS v ON v.student_id = s.student_id AND v.topic_id = s.topic_id
 WHERE s.session_id = 901;
 
-ROLLBACK;
+COMMIT;
