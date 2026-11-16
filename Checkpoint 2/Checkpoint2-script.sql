@@ -6,9 +6,10 @@
 -- ============================================================================
 
 -- SCHEMA MODIFICATIONS SINCE CHECKPOINT 1
--- Kept all nine table definitions. Added indexes for course enrollments,
+-- Performance Indexes Added: Added indexes for course enrollments,
 -- student session history, and practice question searches by topic.
--- The script creates a progress view and a session insert trigger.
+-- Progress and Trigger Integration: Added a view to flag completed topics
+-- below 70% accuracy and a trigger to validate new sessions and record topic views.
 
 -- MEMBER CONTRIBUTIONS SUMMARY
 -- SECTION 1: SIMPLE STATEMENTS
